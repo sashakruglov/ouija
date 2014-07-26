@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block scripts %}
+  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+  <script src="{{ url_for('static', filename='js/lib/jquery.flot.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/lib/jquery.flot.time.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/lib/jquery.flot.selection.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/datepicker.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/plotGraph.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/flot.js') }}"></script>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"/>
+{% endblock %}
+
+{% block content %}
+
+  {% include "heading.html" %}
+  <h3 id="heading"></h3>
+  <div id="graph" style="float:left; width:1000px; height:450px;"></div>
+  <p id="choices" style="float:right; width:130px;">
+    {% for caption, platform in platforms.iteritems() | sort %}
+    <input
+      type="radio"
+      name="platform"
+      {% if platform == "android4.0"%}
+        checked="checked"
+      {% endif %}
+      value="{{ platform }}"
+      id="id{{ platform }}"/>
+    <label for="id{{ platform }}">{{ caption }}</label>
+    </br>
+    {% endfor %}
+  </p>
+{% endblock %}

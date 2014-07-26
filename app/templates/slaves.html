@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block scripts %}
+  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+  <script src="{{ url_for('static', filename='js/lib/jquery.tablesorter.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/datepicker.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/slaves.js') }}"></script>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"/>
+{% endblock %}
+
+{% block content %}
+
+  {% include "heading.html" %}
+
+  <p id="info"></p>
+  <p>
+    Slaves with no failures or retries are not shown by default.</br>
+    Toggle "Display all slaves" checkbox to see statistics for all slaves.
+  </p>
+    <input type="checkbox" id="showHidden"/>
+    <label for="showHidden">Display all slaves</label>
+    </br>
+    <input type="checkbox" id="includeRetries"/>
+    <label for="includeRetries">Include retries in FR calculation</label>
+  </br></br>
+  <table id="results">
+    <thead>
+      <tr>
+        <th>Slave</th>
+        <th width="10%">Fails</th>
+        <th width="10%">Retries</th>
+        <th width="10%">Infra</th>
+        <th width="10%">Passes</th>
+        <th width="10%">Total</th>
+        <th width="10%">% failure</th>
+        <th width="10%">Expected % failure</th>
+        <th width="10%">Jobs since last success</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <div class="modal"></div>
+{% endblock %}

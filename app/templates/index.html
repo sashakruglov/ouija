@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="content">
+  <h3>Welcome to Ouija! TBPL failure analysis tool</h3>
+  <img src="{{ url_for('static', filename='img/ouija.gif') }}" height="250px"/>
+  <p>Ouija is a simple project that was originally created to keep track of our Android hardware testing to track how stable the hardware and tests are each week. Find more about
+    <a href="https://wiki.mozilla.org/Auto-tools/Projects/Ouija"
+       target="_blank">Ouija</a>.
+  </p>
+</div>
+{% endblock %}

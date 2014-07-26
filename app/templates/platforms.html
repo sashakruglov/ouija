@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block scripts %}
+  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+  <script src="{{ url_for('static', filename='js/lib/jquery.tablesorter.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/datepicker.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/androids.js') }}"></script>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css"/>
+  <script type=text/javascript>$apiURL = {{ api_url|tojson|safe }};</script>
+{% endblock %}
+
+{% block content %}
+
+  {% include "heading.html" %}
+
+  <table id="results">
+    <thead>
+      <tr>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr id="green">
+        <td>Green</td>
+      </tr>
+        <tr id="orange">
+          <td>Orange</td>
+      </tr>
+        <tr id="red">
+          <td>Red</td>
+      </tr>
+      <tr id="blue">
+          <td>Blue</td>
+      </tr>
+    </tbody>
+  </table>
+  <strong>
+    <p>Total Failure Rate:
+      <span id="withRetry"></span>
+    </p>
+    <p>Total Failure Rate (excluding retries):
+      <span id="excludeRetry"></span>
+    </p>
+  </strong>
+  </br>
+  <p>Green Results</p>
+  <table id="greenResults">
+    <thead>
+      <tr>
+        <th>changeset</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <div class="modal"></div>
+{% endblock %}

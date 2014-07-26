@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% for platform in platforms %}
+  * {{ platform }} Total failure exclude retry rate: [[http://54.215.155.53/android_failures.html?platform=android2.3 4.09%]] </br>
+  ** {{ platform }} Total failure exclude retry 3.87%]] </br>
+  {% endfor %}
+{% endblock %}

@@ -1,0 +1,141 @@
+/* app stylesheet */
+
+/* site navigation menu styles */
+
+.navigation {
+  width: 1024px;
+  list-style-type: none;
+  margin: 0 auto 20px auto;
+  padding: 0;
+  overflow:hidden;
+}
+
+.navigation li {
+  float: left;
+  font-weight: bold;
+  background-color: #98bf21;
+  text-align: center;
+  padding: 4px;
+}
+
+.navigation a:link, .navigation a:visited {
+  display: block;
+  width: 180px;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.navigation a:hover, .active {
+  background-color: #7A991A;
+}
+
+/* end of navigation menu styles */
+
+/* content block style; used for home page */
+
+.content {
+  text-align: center;
+}
+
+/* table styles */
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid black;
+}
+
+td {
+  padding: 4px;
+  border: 1px solid black;
+  text-align: right;
+}
+
+td:first-of-type {
+  text-align: left;
+}
+
+/* end of table styles */
+
+/* headers style for tablesorter */
+
+.header {
+  padding: 4px;
+  border: 1px solid black;
+  background-image: url(/static/img/bg.gif);
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-color:#eee;
+  cursor: pointer;
+  padding-right: 20px;
+}
+
+.headerSortUp {
+  background-image: url(/static/img/asc.gif);
+}
+
+.headerSortDown {
+  background-image: url(/static/img/desc.gif);
+}
+
+/* end of headers style */
+
+.heading {
+  text-align: center;
+}
+
+.datepicker {
+  padding-bottom: 10px;
+}
+
+#error {
+  display: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.alert {
+  font-weight: bold;
+  color: #ff0000;
+}
+
+/* resize datepicker calendar */
+
+.ui-datepicker {
+  font-size: 10pt !important;
+}
+
+/* styling ajax loading indicator */
+
+.modal {
+  display:    none;
+  position:   fixed;
+  z-index:    1000;
+  top:        0;
+  left:       0;
+  height:     100%;
+  width:      100%;
+  background: rgba( 255, 255, 255, .8 )
+              url('/static/img/ajax-loader.gif')
+              50% 50%
+              no-repeat;
+}
+
+/* When the body has the loading class, we turn the scrollbar off with overflow:hidden */
+
+body.loading {
+  overflow: hidden;
+}
+
+/* Anytime the body has the loading class, ourmodal element will be visible */
+
+body.loading .modal {
+  display: block;
+}
+
+.legend table {
+  border-spacing: 5px;
+  width: auto;
+}

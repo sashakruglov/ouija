@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+  {% block head %}
+  <meta charset="utf-8">
+  <title>{{ page_title|safe }} | Ouija</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}"/>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  {% block scripts %}{% endblock %}
+  {% endblock %}
+</head>
+<body>
+  <a href="https://github.com/dminor/ouija"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/e7bbb0521b397edbd5fe43e7f760759336b5e05f/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677265656e5f3030373230302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"></a>
+  <ul class="navigation">
+    {%- for endpoint, params, caption in [
+      ('index', {}, 'Home'),
+      ('android_failures', {'platform': 'android2.3'}, 'Android2.3 failure rate'),
+      ('android_failures', {'platform': 'android4.0'}, 'Android4.0 failure rate'),
+      ('slave_failures', {}, 'Slave failures'),
+      ('test_results_day_flot', {}, 'Test results per day')
+    ] %}
+      <li>
+        {% set url = url_for(endpoint, **params) %}
+        <a{% if url == request.path %} class="active" {% endif %}
+            href={{ url }}>{{ caption }}
+        </a>
+    {%- endfor %}
+  </ul>
+  {% block content %}{% endblock %}
+</body>
+</html>

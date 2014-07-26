@@ -1,0 +1,15 @@
+<div class="heading">
+<h1>{{ page_title }}</h1>
+<p id="error" class="alert"></p>
+<div class="reportDates">
+  <strong>Data fetched for:</strong>
+  <span id="startDate"></span> &mdash; <span id="endDate"></span>
+</div>
+</div>
+
+{% from "form_macro.html" import render_field %}
+<form class="datepicker">
+  {{ render_field(form.start_date, size="10") }}
+  {{ render_field(form.end_date, size="10") }}
+  <input type="submit" value="Get data"/>
+</form>
